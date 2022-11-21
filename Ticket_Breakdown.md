@@ -16,42 +16,35 @@ Based on the information given, break this ticket down into 2-5 individual ticke
 You will be graded on the level of detail in each ticket, the clarity of the execution plan within and between tickets, and the intelligibility of your language. You don't need to be a native English speaker, but please proof-read your work.
 
 ## Your Breakdown Here
-Ticket 1: Create Facility Agent Table
-Description:
+#### Ticket 1: Create Facility Agent Table
+#### Description:
 In order for the Facilities to create their custom entry with the agents provided, we need to create a table for the same and use the custom IDs of the agents whenever we get to generate the report.
 Table Name: `facility_agent`
 Columns: `_id`, `agent_id`, `custom_agent_id`
 Index: `facility_id_agent_id_idx` (`_id`, `agent_id`)
 
 
-Ticket 2: Frontend: Accept a custom agent ID while assigning an agent to a Facility  (Single entry)
-Description:
+#### Ticket 2: Frontend: Accept a custom agent ID while assigning an agent to a Facility  (Single entry)
+#### Description:
 When assigning a worker, let user be able to add custom agent ID in the form. Create a text field in the form and send the input data  to API as  `customAgentId`.
 
 
-Ticket 3: Backend: Accept a `customAgentId` while assigning an agent to a  Facility (Single entry)
-Description:
+#### Ticket 3: Backend: Accept a `customAgentId` while assigning an agent to a  Facility (Single entry)
+#### Description:
 Accept `customAgentId` in a POST  request `/facility/agent` and insert into `facility_agent` with `_id` and `agent_id`.
 
 
-Ticket 4: Frontend: Accept a custom agent ID while assigning an agent to a fascility (Bulk entry)
-Description:
+#### Ticket 4: Frontend: Accept a custom agent ID while assigning an agent to a fascility (Bulk entry)
+#### Description:
 Accept `custom_agent_id` in the uploaded files and send the same in the API in the key `customAgentId`.
 
 
-Ticket 5: Backend: Accept a custom agent ID while assigning an agent to a fascility (Bulk entry)
-Description:
+#### Ticket 5: Backend: Accept a custom agent ID while assigning an agent to a fascility (Bulk entry)
+#### Description:
 Accept `customAgentId` in a POST  request `/fascility/agent/bulk` and insert into `facility_agent` with `_id` and `agent_id`.
 
 
-Ticket 6: Update `getShiftsByFacility` method to capture the custom IDs of the agents provided by the facility
-Description:
+#### Ticket 6: Update `getShiftsByFacility` method to capture the custom IDs of the agents provided by the facility
+#### Description:
 We need to add the custom IDs of the agents assigned to a facility instead of their internal databse IDs.
 In `getShiftsByFacility` method, fetch the `custom_agent_id` from `facility_agent` table using the `_id` and `agent_id`. return a response of `customAgentId`
-
-
-Ticket 7: Wrtie Unit Test
-Description:
- 1. Test to populate `facility_agent` with test data
- 2. Verfy the custom ID from test data in the method `getShiftsByFacility`
- 3. Test to verify if the custom ID is added `facility_agent` DB
