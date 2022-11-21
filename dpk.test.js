@@ -11,6 +11,11 @@ describe("deterministicPartitionKey", () => {
     const trivialKey = deterministicPartitionKey(event);
     expect(trivialKey).toBe(partitionKey)
   });
+  it("Returns a hash when given empty object as event", () => {
+    const event = {};
+    const trivialKey = deterministicPartitionKey(event);
+    expect(trivialKey.length).toBe(128);
+  });
 
   it("Returns a hashed hex key on passing > 256 long partionKey", () => {
     const partitionKey = "xkjdjkfvdfkvjfjkbjkvjkdjvdsdkjfkjsdfksjfjksjjvdfjkjkkjsjkfcjkskfjsdjkvjvkjhkvkdjvksfkjsdkjvskjdjksdjkfskjkjsdksjkvjkbjkfbjjkbkbjkvskjfsdkhfdfkvvbnfbnxbnfbndfnvfdjhvdjhvdjhvjfhvjhdvjdhvjdhfvdjhfvjhdfvjhdfvhjdfjhvdfjvhdfvhdfvhjdfhjvdjhvhdgvhdfvkhdfkvkdfvkhdfhkvhkdxfvhkdfkhvhkdvdfvhkdvhdkvdhkfvkdfvkhdfvkdfkhvfkh";
